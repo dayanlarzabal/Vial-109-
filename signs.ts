@@ -1,0 +1,57 @@
+import type { Sign } from './types';
+import { SENALES_EXTRA } from './senales-extra';
+
+const BASE: Sign[] = [
+  { id: 'pare', name: 'PARE', group: 'prioridad', meaning: 'Detención total antes de la línea de PARE o del borde de la vía transversal. Ceda a quienes circulan por ella.', tip: 'Siempre se detiene, aunque no venga nadie.' },
+  { id: 'ceda', name: 'Ceda el paso', group: 'prioridad', meaning: 'Reduzca y ceda a quienes tienen prioridad. Deténgase solo si es necesario.', tip: 'No es lo mismo que PARE: puede no detenerse si el cruce está libre.' },
+  { id: 'prioridad', name: 'Calzada con prioridad', group: 'prioridad', meaning: 'Usted circula por una vía con prioridad en las intersecciones siguientes.', tip: 'Igual debe moderar si hay riesgo.' },
+  { id: 'fin-prioridad', name: 'Fin de prioridad', group: 'prioridad', meaning: 'Termina el tramo en el que usted tenía prioridad.', tip: 'Vuelve la regla general de la derecha u otras señales.' },
+  { id: 'no-entrar', name: 'Acceso prohibido', group: 'prohibicion', meaning: 'Prohibido entrar en ese sentido a todos los vehículos.', tip: 'Clásico círculo rojo con barra horizontal blanca.' },
+  { id: 'circulacion-prohibida', name: 'Circulación prohibida', group: 'prohibicion', meaning: 'Ningún vehículo puede circular por esa vía.', tip: 'Distinto del acceso prohibido en un solo sentido.' },
+  { id: 'no-adelantar', name: 'Prohibido adelantar', group: 'prohibicion', meaning: 'No se puede rebasar a otros vehículos en ese tramo.', tip: 'Válido hasta la señal de fin o el próximo cruce regulado.' },
+  { id: 'no-estacionar', name: 'Prohibido estacionar', group: 'prohibicion', meaning: 'No se puede estacionar. La detención breve puede estar permitida según contexto.', tip: 'Rayas en el bordillo refuerzan la prohibición.' },
+  { id: 'no-detener', name: 'Prohibido detenerse', group: 'prohibicion', meaning: 'No detener ni estacionar el vehículo.', tip: 'Más restrictiva que solo “no estacionar”.' },
+  { id: 'vel-20', name: 'Velocidad máxima 20', group: 'prohibicion', meaning: 'No superar 20 km/h.', tip: 'Frecuente cerca de escuelas o zonas peatonales.' },
+  { id: 'vel-30', name: 'Velocidad máxima 30', group: 'prohibicion', meaning: 'No superar 30 km/h.', tip: 'Zonas residenciales o escolares.' },
+  { id: 'vel-40', name: 'Velocidad máxima 40', group: 'prohibicion', meaning: 'No superar 40 km/h.', tip: 'Vías urbanas con tráfico mixto.' },
+  { id: 'vel-50', name: 'Velocidad máxima 50', group: 'prohibicion', meaning: 'No superar 50 km/h (límite típico en zona urbana).', tip: 'Art. 126: 50 km/h en vías urbanas para autos ligeros.' },
+  { id: 'vel-60', name: 'Velocidad máxima 60', group: 'prohibicion', meaning: 'No superar 60 km/h.', tip: 'Puede aparecer en tramos urbanos o de enlace.' },
+  { id: 'vel-80', name: 'Velocidad máxima 80', group: 'prohibicion', meaning: 'No superar 80 km/h.', tip: 'Carretera para algunos tipos de vehículo.' },
+  { id: 'vel-90', name: 'Velocidad máxima 90', group: 'prohibicion', meaning: 'No superar 90 km/h.', tip: 'Carretera: límite típico para autos ligeros.' },
+  { id: 'vel-100', name: 'Velocidad máxima 100', group: 'prohibicion', meaning: 'No superar 100 km/h.', tip: 'Autopista: autos hasta 3 500 kg y ómnibus (art. 126).' },
+  { id: 'no-girar-izq', name: 'Prohibido girar a la izquierda', group: 'prohibicion', meaning: 'No se permite el giro a la izquierda.', tip: 'Busque el desvío o la vuelta autorizada.' },
+  { id: 'no-girar-der', name: 'Prohibido girar a la derecha', group: 'prohibicion', meaning: 'No se permite el giro a la derecha.', tip: 'Puede haber peatones o carril especial.' },
+  { id: 'no-u', name: 'Prohibido cambio de sentido', group: 'prohibicion', meaning: 'No se puede hacer giro en U.', tip: 'Use una intersección autorizada más adelante.' },
+  { id: 'no-bocina', name: 'Prohibido usar bocina', group: 'prohibicion', meaning: 'No tocar el claxon salvo emergencia.', tip: 'Zonas hospitalarias o de silencio.' },
+  { id: 'sentido-obligatorio', name: 'Sentido obligatorio', group: 'obligacion', meaning: 'Debe seguir el sentido que indica la flecha.', tip: 'Círculo azul con flecha blanca.' },
+  { id: 'sentido-giratorio', name: 'Glorieta / sentido giratorio', group: 'obligacion', meaning: 'Circulación obligatoria en el sentido de la flecha (rotonda).', tip: 'Ceda a quien ya circula dentro, salvo señal en contrario.' },
+  { id: 'solo-derecha', name: 'Solo derecha', group: 'obligacion', meaning: 'Obligatorio girar o dirigirse a la derecha.', tip: 'No continúe de frente.' },
+  { id: 'solo-izquierda', name: 'Solo izquierda', group: 'obligacion', meaning: 'Obligatorio girar o dirigirse a la izquierda.', tip: 'Sitúese a tiempo en el carril correcto.' },
+  { id: 'curva-derecha', name: 'Curva peligrosa a la derecha', group: 'peligro', meaning: 'Curva pronunciada a la derecha. Reduzca antes de entrar.', tip: 'No frene en pleno apoyo.' },
+  { id: 'curva-izquierda', name: 'Curva peligrosa a la izquierda', group: 'peligro', meaning: 'Curva pronunciada a la izquierda.', tip: 'Mire lejos y mantenga el carril.' },
+  { id: 'cruce', name: 'Intersección o cruce', group: 'peligro', meaning: 'Se aproxima un cruce. Extreme la atención.', tip: 'Sin señales de prioridad rige la derecha (art. 79).' },
+  { id: 'cruce-t', name: 'Empalme en T', group: 'peligro', meaning: 'La vía termina o se une en T.', tip: 'Quien llega por el tramo sin continuidad cede.' },
+  { id: 'ninos', name: 'Niños / zona escolar', group: 'peligro', meaning: 'Presencia de niños o zona escolar. Baje la velocidad.', tip: 'Art. 126: 20 km/h cerca de escuelas con niños a la vista.' },
+  { id: 'peatones', name: 'Peatones', group: 'peligro', meaning: 'Paso o zona con peatones frecuentes.', tip: 'Ceda en el paso peatonal marcado.' },
+  { id: 'animales', name: 'Paso de animales', group: 'peligro', meaning: 'Pueden cruzar animales. Prepárese a detenerse.', tip: 'No toque bocina de forma que asuste al animal.' },
+  { id: 'obras', name: 'Obras en la vía', group: 'peligro', meaning: 'Trabajos en la calzada. Respete desvíos y límites temporales.', tip: 'El régimen provisional manda sobre la señal fija (art. 62).' },
+  { id: 'resbaladizo', name: 'Calzada resbaladiza', group: 'peligro', meaning: 'Pavimento que puede estar resbaloso.', tip: 'Aumente la distancia de frenado.' },
+  { id: 'estrechamiento', name: 'Estrechamiento de la calzada', group: 'peligro', meaning: 'La vía se estrecha. Ajuste velocidad y posición.', tip: 'Si hay señal de prioridad en el estrecho, obedezca.' },
+  { id: 'paso-nivel', name: 'Paso a nivel', group: 'peligro', meaning: 'Cruce con vía férrea. Deténgase si el guardacrucero o las barreras lo indican.', tip: 'Nunca se detenga sobre los rieles.' },
+  { id: 'semaforo-adelante', name: 'Semáforo adelante', group: 'peligro', meaning: 'Se aproxima un semáforo. Prepárese a detenerse.', tip: 'No acelere en ámbar: si puede parar con seguridad, pare.' },
+  { id: 'dos-sentidos', name: 'Circulación en dos sentidos', group: 'peligro', meaning: 'Pasa de uno a dos sentidos. Cuidado con el tráfico contrario.', tip: 'Manténgase a la derecha.' },
+  { id: 'hospital', name: 'Hospital', group: 'informacion', meaning: 'Centro de salud próximo.', tip: 'No use bocina; ceda a ambulancias en servicio.' },
+  { id: 'estacionamiento', name: 'Estacionamiento', group: 'informacion', meaning: 'Zona donde se permite estacionar.', tip: 'Respete marcas y horarios si los hay.' },
+  { id: 'paso-peatones', name: 'Paso de peatones', group: 'marca', meaning: 'Lugar marcado para que crucen los peatones. Tienen prioridad.', tip: 'Deténgase antes de la cebra, no encima.' },
+  { id: 'linea-continua', name: 'Línea continua', group: 'marca', meaning: 'No se puede rebasar ni invadir el sentido contrario.', tip: 'Solo se traspasa para entrar a una propiedad si es seguro y no está prohibido.' },
+  { id: 'linea-discontinua', name: 'Línea discontinua', group: 'marca', meaning: 'Se puede cambiar de carril o adelantar si es seguro.', tip: 'Señalice y compruebe el ángulo muerto.' },
+  { id: 'linea-pare', name: 'Línea de PARE', group: 'marca', meaning: 'Línea transversal donde debe detenerse ante PARE o luz roja.', tip: 'La detención es ANTES de la línea.' },
+  { id: 'carril-bus', name: 'Carril para ómnibus', group: 'marca', meaning: 'Carril reservado al transporte público, salvo autorización.', tip: 'No lo use como atajo en congestión.' },
+];
+
+export const SIGNS: Sign[] = [
+  ...BASE,
+  ...(SENALES_EXTRA as unknown as Sign[]),
+];
+
+export const signById = Object.fromEntries(SIGNS.map((s) => [s.id, s])) as Record<string, Sign>;
