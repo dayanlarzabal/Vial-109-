@@ -1,0 +1,13 @@
+{
+  "name": "Vial 109 — Licencia Cuba",
+  "short_name": "Vial 109",
+  "description": "Prepara tu licencia de conducción en Cuba con la Ley 109",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0f766e",
+  "lang": "es",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
