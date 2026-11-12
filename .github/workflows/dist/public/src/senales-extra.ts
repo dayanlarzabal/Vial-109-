@@ -1,0 +1,313 @@
+/**
+ * Vial 109 — Señales adicionales para pegar en src/data/signs.ts
+ * Formato compatible con la app anterior.
+ * Grupos: peligro | prioridad | prohibicion | obligacion | informacion | marca
+ */
+
+export const SENALES_EXTRA = [
+  // —— Peligro ——
+  {
+    id: "doble-curva",
+    name: "Doble curva (primera a la derecha)",
+    group: "peligro",
+    meaning: "Se aproximan dos curvas consecutivas; la primera es a la derecha. Reduzca antes de entrar.",
+    tip: "No intente adelantar entre las dos curvas.",
+  },
+  {
+    id: "doble-curva-izq",
+    name: "Doble curva (primera a la izquierda)",
+    group: "peligro",
+    meaning: "Dos curvas seguidas; la primera es a la izquierda.",
+    tip: "Baje la velocidad antes de la primera curva, no en medio.",
+  },
+  {
+    id: "pendiente-bajada",
+    name: "Pendiente peligrosa (descenso)",
+    group: "peligro",
+    meaning: "Tramo con fuerte bajada. Controle la velocidad con el motor, no solo con el freno.",
+    tip: "En bajadas largas, use marcha corta para no recalentar los frenos.",
+  },
+  {
+    id: "pendiente-subida",
+    name: "Pendiente peligrosa (ascenso)",
+    group: "peligro",
+    meaning: "Tramo con fuerte subida. Puede haber vehículos lentos o que se detienen.",
+    tip: "No se detenga de golpe detrás de un vehículo que no puede subir.",
+  },
+  {
+    id: "puente",
+    name: "Puente angosto o peligroso",
+    group: "peligro",
+    meaning: "Se aproxima un puente estrecho o con riesgo. Ceda si no caben dos vehículos.",
+    tip: "En puentes angostos tiene prioridad quien ya entró, salvo señal en contrario.",
+  },
+  {
+    id: "viento-lateral",
+    name: "Viento lateral",
+    group: "peligro",
+    meaning: "Puede haber rachas de viento que empujen el vehículo, sobre todo a vehículos altos o ligeros.",
+    tip: "Sujete bien el volante y reduzca la velocidad.",
+  },
+  {
+    id: "niebla",
+    name: "Niebla o baja visibilidad",
+    group: "peligro",
+    meaning: "Zona donde suele haber niebla o humo. Encienda luces de cruce y alargue la distancia.",
+    tip: "No use luces de carretera en niebla densa: reflejan y ciegan.",
+  },
+  {
+    id: "cruce-animales-salvajes",
+    name: "Paso de animales salvajes",
+    group: "peligro",
+    meaning: "Puede cruzar fauna silvestre. Extreme la atención de noche y al amanecer.",
+    tip: "Si ve un animal, frene con suavidad; no haga zigzag.",
+  },
+  {
+    id: "ciclistas",
+    name: "Ciclistas",
+    group: "peligro",
+    meaning: "Presencia frecuente de ciclistas. Respete su espacio al adelantar.",
+    tip: "Al pasar a un ciclista, deje al menos 1,5 m de separación lateral si puede.",
+  },
+  {
+    id: "embotellamiento",
+    name: "Congestión o embotellamiento",
+    group: "peligro",
+    meaning: "Se aproxima un tramo con tráfico denso o colas frecuentes.",
+    tip: "Prepare el freno y mantenga distancia de seguridad.",
+  },
+  {
+    id: "desnivel",
+    name: "Desnivel o badén pronunciado",
+    group: "peligro",
+    meaning: "Cambio brusco de nivel en el pavimento. Pase despacio.",
+    tip: "No frene encima del badén: frene antes.",
+  },
+  {
+    id: "carril-reversible",
+    name: "Carril de sentido reversible",
+    group: "peligro",
+    meaning: "Un carril puede cambiar de sentido según la hora o la señalización luminosa.",
+    tip: "Obedezca el semáforo de carril (rojo = no use ese carril).",
+  },
+
+  // —— Prioridad ——
+  {
+    id: "prioridad-estrecho",
+    name: "Prioridad en tramo estrecho",
+    group: "prioridad",
+    meaning: "Usted tiene preferencia sobre el sentido contrario en un estrechamiento.",
+    tip: "Aun así, no fuerce el paso si el otro ya entró.",
+  },
+  {
+    id: "ceda-estrecho",
+    name: "Ceda en tramo estrecho",
+    group: "prioridad",
+    meaning: "Debe ceder al tráfico del sentido contrario en un estrechamiento.",
+    tip: "Espere fuera del estrechamiento hasta que quede libre.",
+  },
+  {
+    id: "ceda-adelante",
+    name: "Ceda el paso más adelante",
+    group: "prioridad",
+    meaning: "Más adelante habrá una obligación de ceder. Prepárese a reducir.",
+    tip: "No acelere para «ganar» el cruce.",
+  },
+
+  // —— Prohibición ——
+  {
+    id: "prohibido-todo",
+    name: "Circulación prohibida (todos los vehículos)",
+    group: "prohibicion",
+    meaning: "Ningún vehículo puede circular por esa vía en el sentido de la señal.",
+    tip: "Distinto de «acceso prohibido»: aquí se prohíbe a todos los sentidos o el tramo completo según el contexto.",
+  },
+  {
+    id: "solo-motos",
+    name: "Prohibido a vehículos de motor excepto motos y ciclomotores",
+    group: "prohibicion",
+    meaning: "No pueden entrar autos, camiones ni ómnibus; sí motocicletas y ciclomotores.",
+    tip: "Lea bien el pictograma: a veces solo prohíbe camiones o solo motos.",
+  },
+  {
+    id: "prohibido-peso",
+    name: "Prohibido vehículos por peso",
+    group: "prohibicion",
+    meaning: "No pueden circular vehículos cuyo peso total supere el indicado en la señal (en toneladas).",
+    tip: "Incluye la carga. Si duda del peso, no entre.",
+  },
+  {
+    id: "prohibido-altura",
+    name: "Prohibido por altura",
+    group: "prohibicion",
+    meaning: "No pueden pasar vehículos que superen la altura marcada (en metros).",
+    tip: "Mida con la carga o antenas. Un puente bajo no perdona el error.",
+  },
+  {
+    id: "prohibido-ancho",
+    name: "Prohibido por anchura",
+    group: "prohibicion",
+    meaning: "No pueden pasar vehículos más anchos que el límite indicado.",
+    tip: "Incluye espejos y carga lateral.",
+  },
+  {
+    id: "fin-prohibicion",
+    name: "Fin de prohibición",
+    group: "prohibicion",
+    meaning: "Termina la restricción anterior (velocidad, adelantamiento, etc.).",
+    tip: "Vuelve a regir el límite general de la vía, no «libre a cualquier velocidad».",
+  },
+  {
+    id: "fin-velocidad",
+    name: "Fin de limitación de velocidad",
+    group: "prohibicion",
+    meaning: "Cesa el límite máximo específico. Aplica de nuevo el genérico de la vía.",
+    tip: "En ciudad suele ser 50 km/h; en carretera, el del tipo de vehículo.",
+  },
+  {
+    id: "no-adelantar-camiones",
+    name: "Prohibido adelantar a camiones",
+    group: "prohibicion",
+    meaning: "Los vehículos de carga no pueden ser rebasados en ese tramo (o no pueden ellos adelantar, según el pictograma).",
+    tip: "Lea si la prohibición es «no adelantar» o «camiones no adelanten».",
+  },
+  {
+    id: "estacionamiento-alterno",
+    name: "Estacionamiento alterno (pares/impares)",
+    group: "prohibicion",
+    meaning: "Se permite parquear solo en días pares o impares, según indique la señal.",
+    tip: "El día se cuenta por la fecha del calendario, no por la hora de llegada.",
+  },
+  {
+    id: "zona-carga",
+    name: "Zona de carga y descarga",
+    group: "prohibicion",
+    meaning: "Solo se puede detener para cargar o descargar en el horario indicado. Fuera de horario rige la norma general.",
+    tip: "Estar parado «un momento» sin cargar también puede ser infracción.",
+  },
+
+  // —— Obligación ——
+  {
+    id: "paso-lado-derecho",
+    name: "Paso obligatorio por la derecha del obstáculo",
+    group: "obligacion",
+    meaning: "Debe rodear el obstáculo, isleta o refugio por el lado que indica la flecha.",
+    tip: "No cruce por el lado prohibido aunque parezca más corto.",
+  },
+  {
+    id: "paso-lado-izquierdo",
+    name: "Paso obligatorio por la izquierda del obstáculo",
+    group: "obligacion",
+    meaning: "Pase el obstáculo únicamente por la izquierda.",
+    tip: "Común en obras o refugios centrales.",
+  },
+  {
+    id: "via-ciclistas",
+    name: "Vía obligatoria para ciclistas",
+    group: "obligacion",
+    meaning: "Los ciclistas deben usar esa senda o carril. Los demás vehículos no deben invadirla.",
+    tip: "Si usted va en auto, no se detenga ni parquee sobre el carril bici.",
+  },
+  {
+    id: "via-peatones",
+    name: "Vía obligatoria para peatones",
+    group: "obligacion",
+    meaning: "Los peatones deben circular por ese tramo o pasarela.",
+    tip: "Los vehículos no pueden usarla como atajo.",
+  },
+  {
+    id: "cadena-nieve",
+    name: "Cadenas para nieve obligatorias",
+    group: "obligacion",
+    meaning: "En esa zona es obligatorio llevar y, si las condiciones lo exigen, montar cadenas o equivalentes.",
+    tip: "En Cuba es rara; en el examen puede salir como conocimiento general de señales.",
+  },
+  {
+    id: "velocidad-minima",
+    name: "Velocidad mínima",
+    group: "obligacion",
+    meaning: "No circule por debajo del valor indicado, salvo causa de seguridad o señal que lo autorice.",
+    tip: "Complementa la regla de no entorpecer la fluidez (art. 127).",
+  },
+
+  // —— Información ——
+  {
+    id: "hospital-emergencias",
+    name: "Hospital / emergencias",
+    group: "informacion",
+    meaning: "Centro de salud o servicio de urgencias próximo.",
+    tip: "No use la bocina cerca. Ceda a ambulancias con sirena y baliza.",
+  },
+  {
+    id: "telefono",
+    name: "Teléfono de auxilio",
+    group: "informacion",
+    meaning: "Hay un teléfono de emergencia o auxilio vial en las cercanías.",
+    tip: "Úselo en averías o accidentes; no para llamadas personales.",
+  },
+  {
+    id: "taller",
+    name: "Taller o servicio mecánico",
+    group: "informacion",
+    meaning: "Servicio de reparación o asistencia mecánica disponible.",
+    tip: "Si se detiene en el arcén, señalice con el triángulo.",
+  },
+  {
+    id: "fin-autopista",
+    name: "Fin de autopista",
+    group: "informacion",
+    meaning: "Termina el régimen de autopista. Cambian los límites y las reglas de incorporación.",
+    tip: "Prepare la reducción de velocidad antes de salir del tramo.",
+  },
+  {
+    id: "inicio-autopista",
+    name: "Inicio de autopista",
+    group: "informacion",
+    meaning: "Entra en autopista. Límite general para autos ligeros: 100 km/h (art. 126).",
+    tip: "Use el carril de aceleración; no se incorpore a baja velocidad al carril rápido.",
+  },
+  {
+    id: "salida",
+    name: "Salida / desvío",
+    group: "informacion",
+    meaning: "Indica una salida o desvío próximo. Sitúese a tiempo en el carril correcto.",
+    tip: "No cruce varias líneas continuas a última hora.",
+  },
+  {
+    id: "km",
+    name: "Punto kilométrico",
+    group: "informacion",
+    meaning: "Marca la progresiva de la vía (kilómetro).",
+    tip: "Útil para localizar averías o accidentes al avisar a la PNR.",
+  },
+
+  // —— Marcas ——
+  {
+    id: "linea-borde",
+    name: "Línea de borde de calzada",
+    group: "marca",
+    meaning: "Delimita el borde de la calzada. No la traspase salvo emergencia o para detenerse fuera de la vía.",
+    tip: "Si se detiene, hágalo completamente fuera de la calzada cuando sea posible.",
+  },
+  {
+    id: "flecha-seleccion",
+    name: "Flecha de selección de carril",
+    group: "marca",
+    meaning: "Indica el único movimiento permitido desde ese carril (recto, izquierda o derecha).",
+    tip: "Si está en el carril equivocado, no cruce en el último metro: dé la vuelta más adelante.",
+  },
+  {
+    id: "zona-prohibida",
+    name: "Zona de circulación prohibida (cebra oblicua)",
+    group: "marca",
+    meaning: "Área rayada donde no se puede circular ni estacionar.",
+    tip: "Tampoco «un segundo» encima para recortar la curva.",
+  },
+  {
+    id: "guia-carril",
+    name: "Líneas guía en intersección",
+    group: "marca",
+    meaning: "Marcas que orientan el recorrido dentro del cruce.",
+    tip: "Sígalas; no «corte» el cruce en diagonal.",
+  },
+] as const;
