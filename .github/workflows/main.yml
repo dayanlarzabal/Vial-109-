@@ -1,1 +1,9 @@
+name: Build Android APK   # o el nombre que quieras
 
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:     # permite ejecutarlo manualmente desde Actions
+
+jobs:
+  # aquí van tus jobs (build, etc.)
