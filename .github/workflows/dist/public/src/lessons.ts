@@ -1,164 +1,209 @@
-import type { Lesson } from './types';
+import type { Lesson } from "./types";
 
 export const LESSONS: Lesson[] = [
   {
-    slug: 'tramite',
-    title: 'Trámite de la licencia',
-    summary: 'Médico, teórico, práctico y requisitos del aspirante.',
+    slug: "tramite",
+    title: "Trámite de la licencia",
+    summary: "Tres exámenes. El curso no sustituye al teórico del MININT.",
     blocks: [
       {
-        heading: 'Qué examenes hay',
-        body: 'Según el art. 270, el aspirante se somete a examen médico, teórico y práctico. El MINSAP regula el médico (Res. 906/2022). El MININT realiza el teórico y el práctico (arts. 273–274).',
+        heading: "Qué hay que vencer",
+        body: "El aspirante se somete a examen médico, teórico y práctico. El médico lo regula el MINSAP (Resolución 906/2022). El teórico y el práctico los hace el Ministerio del Interior, que también fija el contenido y la forma.",
       },
       {
-        heading: 'Curso de educación vial',
-        body: 'Hace falta el curso avalado por la autoridad competente. Aprobar el curso no sustituye el examen teórico oficial del MININT.',
+        heading: "El curso no alcanza",
+        body: "Hace falta el curso de educación vial avalado. Aprobarlo no sustituye el examen teórico oficial. El día de la prueba se presentan la identidad, el certificado médico y la constancia del curso.",
       },
       {
-        heading: 'Revisiones por edad',
-        body: 'A los 65 y a los 70 años debe presentarse el resultado del examen de salud. Después de los 70, cada dos años. El incumplimiento puede llevar a suspensión o cancelación (arts. 286–289).',
+        heading: "Edad y revisiones",
+        body: "La edad mínima general es 18 años. A los 65 y a los 70 hay que presentar el examen de salud. Después de los 70, cada dos años. Incumplir puede llevar a suspensión o cancelación.",
+      },
+      {
+        heading: "La licencia no se presta",
+        body: "Es personal e intransferible. Circular sin ella, o dejar que otra persona conduzca con la suya, es infracción. El vehículo, además, debe circular con su documentación.",
       },
     ],
   },
   {
-    slug: 'categorias',
-    title: 'Categorías de licencia',
-    summary: 'A, A1, B, C, C1, D, D1, E, F y requisitos de experiencia.',
+    slug: "categorias",
+    title: "Categorías de licencia",
+    summary: "Qué puede manejar cada letra y qué vista piden.",
     blocks: [
       {
-        heading: 'Categorías principales',
-        body: 'A/A1: motocicletas. B: autos hasta 8 asientos (sin conductor) y hasta 3 500 kg. C/C1: carga. D/D1: pasajeros (D1: 9–16 asientos). E: combinaciones y articulados. F: tractores y maquinaria.',
+        heading: "Las letras",
+        body: "A1: motocicletas de cilindrada y potencia limitadas (el temario usual: hasta 125 cm³). A: el resto de las motos. B: autos hasta 8 asientos sin contar al conductor y hasta 3 500 kg. C y C1: carga. D y D1: pasajeros (D1, el rango intermedio de asientos). E: combinaciones y articulados. F: tractores y maquinaria.",
       },
       {
-        heading: 'Experiencia',
-        body: 'Las categorías profesionales exigen tiempo mínimo en categorías inferiores (art. 265). Por ejemplo, E requiere experiencia en C y en D.',
+        heading: "No se salta de categoría",
+        body: "Las profesionales piden tiempo mínimo en una inferior. C exige experiencia en B. E exige experiencia en C y en D. No se obtiene «de entrada» solo con el médico.",
       },
       {
-        heading: 'Visión (Res. 906/2022)',
-        body: 'B: 0,6 en ambos ojos. A: 0,8 y 0,5. C: 1,0 y 0,8. Debe distinguirse rojo, verde y amarillo.',
+        heading: "La vista (Resolución 906/2022)",
+        body: "A: 0,8 en un ojo y 0,5 en el otro. B: 0,6 en los dos ojos. C: 1,0 en un ojo y 0,8 en el otro. Hay que distinguir rojo, verde y amarillo. El examen médico incluye oftalmología, psicología y el criterio del médico de la familia.",
       },
     ],
   },
   {
-    slug: 'velocidad',
-    title: 'Límites de velocidad',
-    summary: 'Art. 126–128: ciudad, carretera, autopista y casos especiales.',
+    slug: "velocidad",
+    title: "Límites de velocidad",
+    summary: "La tabla del 126 y las cinco excepciones del 127.",
+    scene: "terraplen",
     blocks: [
       {
-        heading: 'Tabla básica (autos ≤ 3 500 kg)',
-        body: 'Urbana: 50 km/h. Carretera: 90 km/h. Autopista: 100 km/h. Escuelas con niños a la vista: 20 km/h. El MININT puede fijar máximos distintos mediante señalización.',
+        heading: "Artículo 126, la tabla",
+        body: "Urbana: 50 km/h para todos los vehículos de motor, no solo los ligeros. Carretera: 90 los autos de hasta 3 500 kg y los ómnibus; 80 la carga rígida y articulada; 70 con remolque, grúas y similares. Autopista: 100, 90 y 80 en ese mismo orden. Equipos de construcción, industriales, tractores y maquinaria agrícola: 20 km/h. El MININT puede bajar cualquier límite con señal, y subirlo solo para ligeros y ómnibus.",
       },
       {
-        heading: 'Velocidad inadecuada',
-        body: 'Art. 127: tampoco se circula tan despacio que se obstaculice el tránsito sin justificación. Art. 128: se modera cerca de ómnibus detenidos, peatones, animales, lluvia o pavimento resbaloso.',
+        heading: "Zona de niños no es 20",
+        body: "Artículo 127: en zona de niños, máximo 40 km/h en urbana y 60 km/h en rural. Los 20 km/h son la salida de garajes, edificios y parqueos interiores, y también el tope de tractores y equipos. En terraplén o camino de tierra no se pasan de 60. En túnel la mínima obligatoria es 60; la máxima la pone la señal.",
+        trap: true,
+      },
+      {
+        heading: "Ni muy rápido ni muy lento",
+        body: "No se circula tan despacio que se afecte la fluidez, salvo que la seguridad lo exija. El artículo 128 obliga a moderar y, si hace falta, a detenerse: poca visibilidad, lluvia, curva, pendiente, peatones, ómnibus detenido, deslumbramiento u obras.",
       },
     ],
   },
   {
-    slug: 'prioridad',
-    title: 'Prioridad y derecho de paso',
-    summary: 'Orden del art. 62, intersecciones y vehículos de emergencia.',
+    slug: "prioridad",
+    title: "Prioridad y derecho de paso",
+    summary: "Quién manda cuando todo se contradice.",
+    scene: "cruce",
     blocks: [
       {
-        heading: 'Orden de prioridad',
-        body: '1) Agentes de la PNR, reguladores militares y guardacruceros. 2) Régimen provisional. 3) Semáforos y señales luminosas/sonoras. 4) Señales verticales. 5) Marcas horizontales.',
+        heading: "El orden del artículo 62",
+        body: "1) Agentes de la PNR, reguladores militares y guardacruceros. 2) Régimen provisional. 3) Semáforos y señales luminosas o sonoras. 4) Señales verticales. 5) Marcas en el pavimento. El agente manda aunque el semáforo diga verde.",
       },
       {
-        heading: 'Sin señales',
-        body: 'Se cede al que viene por la derecha (vías de igual categoría). En T, cede quien llega por el tramo sin continuidad. Se cede a emergencias con sirena/baliza: orilla derecha y detenerse.',
+        heading: "Si no hay nada",
+        body: "En vías de igual categoría se cede al que se aproxima por la derecha. En una T, cede quien llega por el tramo que no continúa. Dentro de una glorieta, salvo señal contraria, tiene preferencia quien ya está circulando.",
+      },
+      {
+        heading: "Emergencias",
+        body: "Sirena y baliza: arrimarse al borde derecho y detenerse. No vale «voy en verde». Los peatones regresan a la acera. No se aprovecha el hueco para pegarse a la ambulancia.",
       },
     ],
   },
   {
-    slug: 'semaforos',
-    title: 'Semáforos y agentes',
-    summary: 'Luces, intermitentes y señales del agente.',
+    slug: "semaforos",
+    title: "Semáforos y el agente",
+    summary: "Roja, ámbar, verde y lo que hacen los brazos.",
     blocks: [
       {
-        heading: 'Luces',
-        body: 'Roja: detenerse antes de la línea o del paso peatonal. Amarilla: detenerse si es seguro. Verde: pasar con precaución. Roja intermitente ≈ PARE. Verde intermitente: el verde termina.',
+        heading: "Luces fijas",
+        body: "Roja: detenerse antes de la línea de PARE o del paso de peatones, sin invadir el cruce. Ámbar fija: detenerse si todavía se puede con seguridad; si no, terminar el cruce. Verde: pasar con precaución. El verde no es un permiso para no mirar.",
       },
       {
-        heading: 'Agente',
-        body: 'Brazo vertical: alto para todos. Brazos horizontales: se detienen quienes están de frente o de espalda. El agente prevalece sobre el semáforo (art. 62).',
+        heading: "Intermitentes",
+        body: "Roja intermitente equivale a PARE: detención y ceder. Verde intermitente avisa que el verde está por terminar. Ámbar intermitente pide precaución y no otorga prioridad. Semáforo apagado: el cruce se trata como intersección sin señales.",
+        trap: true,
+      },
+      {
+        heading: "El agente",
+        body: "Brazo vertical: alto para todos, de inmediato. Brazos extendidos en horizontal: se detienen los que vienen de frente y de espalda; pueden seguir los que llegan de lado. Un balanceo invita a continuar o a acelerar el despeje. El silbato refuerza; no hace falta para obedecer.",
       },
     ],
   },
   {
-    slug: 'senales',
-    title: 'Señales y marcas',
-    summary: 'Peligro, prioridad, prohibición, obligación e información.',
+    slug: "senales",
+    title: "Señales y marcas",
+    summary: "La forma dice el grupo antes de leer el dibujo.",
     blocks: [
       {
-        heading: 'Formas',
-        body: 'Peligro: triángulo rojo. PARE: octágono rojo. Prohibición: círculo con orla roja. Obligación: círculo azul. Información: rectángulos de colores según el tipo.',
+        heading: "Formas que caen siempre",
+        body: "Peligro: triángulo con borde rojo. PARE: octágono rojo, detención total. Ceda el paso: triángulo invertido; se detiene solo si hace falta. Prohibición: círculo con orla roja. Obligación: círculo azul. Información: rectángulos. La vertical manda sobre la marca del piso.",
       },
       {
-        heading: 'Marcas',
-        body: 'Línea continua: no invadir. Discontinua: se puede cambiar de carril. Línea de PARE: detenerse ANTES. Cebra: prioridad peatonal. Zona rayada: no circular ni estacionar.',
+        heading: "Dos prohibidos que se confunden",
+        body: "Acceso prohibido (no entrar) es el disco rojo con barra blanca horizontal: no se entra en ese sentido. Circulación prohibida es el círculo blanco con orla roja, vacío: no circula ningún vehículo. Prohibido estacionar es azul con una barra roja; prohibido detenerse es azul con una cruz roja.",
+        trap: true,
+      },
+      {
+        heading: "El piso",
+        body: "Línea continua: no invadir ni adelantar sobre ella. Discontinua: se puede cambiar de carril si es seguro. La línea de PARE se respeta antes, no encima. La cebra da prioridad al peatón. La zona rayada no se pisa ni se usa para parquear. Las flechas de carril obligan el movimiento que dibujan.",
       },
     ],
   },
   {
-    slug: 'maniobras',
-    title: 'Maniobras y estacionamiento',
-    summary: 'Giros, adelantamientos y dónde no parquear.',
+    slug: "maniobras",
+    title: "Maniobras y estacionamiento",
+    summary: "Señalizar, mirar, y no inventar el adelantamiento.",
     blocks: [
       {
-        heading: 'Reglas básicas',
-        body: 'Señalizar con anticipación. Adelantar solo si la maniobra se completa con seguridad. El rebasado no acelera ni cierra el paso.',
+        heading: "Antes de moverse",
+        body: "Todo giro o cambio de carril se señaliza con anticipación y solo se hace si cabe con seguridad. El retroceso es corto, sin molestar, y no es una forma de incorporarse a una vía principal.",
       },
       {
-        heading: 'Estacionamiento',
-        body: 'Doble sentido: contén derecho. Un sentido: puede usarse el izquierdo si no hay prohibición. Prohibido a menos de 4 m de hidrante, en paradas de ómnibus, pasos a nivel, etc. (art. 139).',
+        heading: "Adelantar",
+        body: "Por la izquierda, cuando se puede terminar la maniobra y volver al carril. Prohibido en curva, cambio de rasante, paso de peatones, paso a nivel, intersección y sobre línea continua. El rebasado no acelera ni cierra el paso. Por la derecha solo en los casos que la vía lo permite, no «porque va lento».",
+      },
+      {
+        heading: "Dónde no se deja el auto",
+        body: "Doble sentido: junto al contén derecho. Un solo sentido: también el izquierdo si no hay prohibición. Prohibido a menos de 4 m de un hidrante, en parada de ómnibus, acera, paso peatonal, cruce, puente, túnel, curva y doble fila.",
       },
     ],
   },
   {
-    slug: 'vehiculo',
-    title: 'Vehículo, luces y carga',
-    summary: 'Iluminación, carga saliente y pasajeros.',
+    slug: "vehiculo",
+    title: "Luces, carga y vehículo",
+    summary: "Ver y no deslumbrar. La carga que sobresale se marca.",
+    scene: "noche",
     blocks: [
       {
-        heading: 'Luces',
-        body: 'Posición visibles a ~300 m. Cruce alumbra ~40 m. Carretera ~100 m. Cambiar a cruce para no deslumbrar.',
+        heading: "Qué luz va",
+        body: "De noche o con poca visibilidad se usan cruce o carretera, no solo las de posición. Las de posición se perciben a unos 300 m. El cruce alumbra unos 40 m sin deslumbrar. La carretera, unos 100 m. Se baja a cruce al cruzarse o al alcanzar a alguien.",
+        trap: true,
       },
       {
-        heading: 'Carga y pasajeros',
-        body: 'Carga saliente: banderas rojas de día; luces/reflectores de noche. Con barandas bajas (< 120 cm) los pasajeros van sentados.',
+        heading: "Cinturón, casco, teléfono",
+        body: "Cinturón para conductor y pasajeros cuando el vehículo lo tiene. Casco para quien maneja moto y para el acompañante. El teléfono en la mano está prohibido: la distracción es la falla que el teórico repite junto al factor humano.",
+      },
+      {
+        heading: "Carga",
+        body: "Si sobresale, de día banderas rojas; de noche luz o reflector blanco adelante y rojo atrás. No puede tapar luces, chapa ni la vista del conductor. Con barandas bajas los pasajeros van sentados, no de pie asomados.",
       },
     ],
   },
   {
-    slug: 'usuarios',
-    title: 'Peatones y accidentes',
-    summary: 'Deberes del peatón y actuación tras un siniestro.',
+    slug: "usuarios",
+    title: "Peatones y accidentes",
+    summary: "La cebra no se negocia. El lugar del accidente no se abandona.",
+    scene: "cebra",
     blocks: [
       {
-        heading: 'Peatones',
-        body: 'Cruzar por pasos marcados o esquinas. Prohibido cruzar entre vehículos parqueados. Ante sirena: volver a la acera.',
+        heading: "El peatón",
+        body: "Circula por la acera. Si no hay, por el borde de la calzada. Cruza por la esquina o por el paso marcado, no entre vehículos parqueados ni por delante de un auto que acaba de detenerse. En la cebra tiene prioridad. Ante una emergencia, vuelve a la acera.",
       },
       {
-        heading: 'Accidentes (art. 69)',
-        body: 'Detenerse, auxiliar, no alterar evidencias, avisar a la autoridad. Si se traslada a un herido, regresar al lugar o presentarse en la unidad de la demarcación.',
+        heading: "Artículo 69",
+        body: "Quien se vea en un accidente se detiene, auxilia, no altera evidencias y avisa a la autoridad. No se mueven los vehículos si hay heridos o si cambia la prueba, salvo para proteger una vida. Si se traslada a un herido, hay que regresar al lugar o presentarse en la unidad de la demarcación.",
+      },
+      {
+        heading: "Paso a nivel",
+        body: "Barrera baja o luz roja: detención total, aunque no se vea el tren. No se rodea la barrera. La cruz de San Andrés avisa el cruce; los paneles de aproximación (tres, dos y una barra) dicen que falta menos.",
       },
     ],
   },
   {
-    slug: 'sanciones',
-    title: 'Sanciones, alcohol y puntos',
-    summary: 'Prohibiciones graves y régimen de puntos.',
+    slug: "sanciones",
+    title: "Alcohol, puntos y sanciones",
+    summary: "Cero para quien trabaja con el vehículo. Negarse también cuenta.",
     blocks: [
       {
-        heading: 'Alcohol',
-        body: 'Cero para profesionales, carga, transporte público y sector estatal. En particular, no conducir bajo niveles que afecten la capacidad. Negarse a la prueba se sanciona.',
+        heading: "Alcohol",
+        body: "Tolerancia cero para transporte público, carga, vehículos estatales y conductores profesionales. Negarse a la prueba que exige el agente se sanciona y puede llevar a suspensión. La Resolución 905/2022 del MINSAP usa miligramos por litro: hasta 24 mg/L se considera negativo; de 25 a 49, positivo con riesgo; de 50 a 99, positivo con afectación, aunque no sea embriaguez.",
+        trap: true,
       },
       {
-        heading: 'Puntos',
-        body: 'El Consejo de Ministros fija los valores. Los noveles alcanzan el límite antes (dos tercios). La Res. 36/2019 regula reducciones por buena conducta o reexamen voluntario.',
+        heading: "Puntos",
+        body: "Los valores los fija el Consejo de Ministros. El conductor novel (menos de dos años) llega al límite antes: a los dos tercios. La Resolución 36/2019 permite, con expediente limpio y sin pasar de 36 puntos, bajar hasta 12 por reexamen voluntario (teórico y práctico, una vez en el año) o por 180 días sin infracciones. Eso no borra una suspensión ya impuesta.",
+      },
+      {
+        heading: "La causa que pone el temario",
+        body: "La Ley trata la seguridad vial como sistema, y el teórico responde que la causa principal de los accidentes es el factor humano: velocidad, alcohol, distracción y no ceder. No es «la vía» ni «el carro viejo» como primera opción.",
       },
     ],
   },
 ];
 
-export const lessonBySlug = Object.fromEntries(LESSONS.map((l) => [l.slug, l]));
+export const LESSON_MAP = Object.fromEntries(LESSONS.map((l) => [l.slug, l]));
