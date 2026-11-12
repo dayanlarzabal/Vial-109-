@@ -27,6 +27,14 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Create Flutter project structure
+        run: |
+          flutter create --org com.vial109 --project-name vial_109 temp_app
+          cp -r temp_app/android .
+          cp -r temp_app/ios . || true
+          cp temp_app/analysis_options.yaml . || true
+          rm -rf temp_app
+
       - name: Get dependencies
         run: flutter pub get
 
