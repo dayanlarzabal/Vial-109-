@@ -42,15 +42,23 @@ jobs:
           yes | sdkmanager --licenses || true
           sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
 
+      - name: Check dist folder
+        run: |
+          if [ ! -d dist ]; then
+            echo "ERROR: No existe la carpeta dist/"
+            exit 1
+          fi
+          ls -la dist | head -20
+
       - name: Install Capacitor
         run: |
           npm install @capacitor/core @capacitor/cli @capacitor/android
-          npx cap init "Vial 109" "com.vial109.vial_109" --web-dir dist || true
+          npx --yes @capacitor/cli init "Vial 109" "com.vial109.vial_109" --web-dir dist || true
 
       - name: Add Android platform
         run: |
-          npx cap add android || true
-          npx cap sync android
+          npx --yes @capacitor/cli add android || true
+          npx --yes @capacitor/cli sync android
 
       - name: Build Release APK
         working-directory: android
